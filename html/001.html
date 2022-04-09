@@ -1,0 +1,177 @@
+<!--
+html注释
+加入以下代码代表html5
+html不区分大小写
+-->
+<!doctype html>
+<!--根-->
+<html lang="">
+<!--头-->
+    <head>
+        <!--告诉浏览器用什么字符集打开-->
+        <meta charset="GBK">
+        <!--显示在网页左上角-->
+        <title>标题</title>
+    </head>
+<!--体-->
+    <body bgcolor="#ffe4c4" background="1.jpg">
+    <br>
+    <!--form表单
+        作用：收集用户信息
+        表单展现之后，用户填写表单，点击提交按钮提交数据给服务器
+        action属性用来指定服务器地址
+        action属性和超链接的href属性一样，都可以向服务器发送请求（request）-->
+    <form action="https://www.baidu.com">
+        <!--画一个按钮，可以提交表单,type="submit"表示该按钮是一个提交按钮，具有提交表单的能力
+        submit、reset必须放在form内。
+            对于按钮来说value用来指定按钮上显示的文本信息
+            表单是以什么格式提交数据给服务器的？
+            action？name=value&name=value&……
+            重点：表单项写了name属性的，一律会提交给服务器。不想提交这一项，就不要写name属性。
+            当name没有写的时候，该项不会提交给服务器，当value没有写的时候，value的默认值是""，会将
+            字符串提交给服务器。java代码得到的是String s = ""
+            -->
+
+        <table >
+            <tr>
+                <td>用户名</td>
+                <td><input type="text" name="username" placeholder="name"/></td>
+
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><input type="password" name="pwd"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right"><input type="submit"  value="登录"/>
+                            &nbsp;&nbsp;&nbsp;<input type="reset"  value="清空"/></td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <!--有序列表
+        无序列表-->
+    <ul type="circle">
+        <li type="square">中国
+            <ul>
+                <li>北京</li>
+                <li>上海</li>
+            </ul>
+        </li>
+        <li type="square">美国
+        <ul>
+            <li>华盛顿</li>
+        </ul>
+        </li>
+
+    </ul>
+    <!--有序列表-->
+    <ol type="I">
+        <li>水果
+            <ol type="1">
+            <li>apple</li>
+            <li>banana</li>
+            </ol>
+        </li>
+    </ol>
+    <!--img图片标签
+        src路径
+        width宽度
+        title悬停提示
+        alt加载失败提示-->
+    <br><br><br>
+    <!--<a>超链接 href后面加url  hot references热引用
+        target属性：可取：
+        _blank 新窗口
+        _self  当前窗口
+        _parent 父窗口
+        _top    顶级窗口
+        超链接的作用：
+        通过超链接可以从浏览器想服务器发送请求
+        浏览器向服务器发送数据：request 请求
+        服务器向浏览器发送数据：response 响应
+        -->
+    <a href="https://www.baidu.com" target="_self"><img src="1.jpg" width="60px"/></a>
+    <br><br><br><br>
+    <img src="1.jpg" width="500px" title="我是" alt="找不到"/>
+    <br><br><br>
+    <br>
+    Hello World
+    <!--段落标记-->
+    <p style="background-color: gold">《黛玉葬花》是文学名著《红楼梦》中的经典片段。林黛玉最怜惜花，觉得花落以后埋在土里（文中指出的是“花冢”）最干净，
+        说明她对美有独特的见解。她写了《葬花吟》，以花比喻自己，在《红楼梦》中是最美丽的诗歌之一。贾宝玉和林黛玉在葬花
+        的时候有一段对话，成为《红楼梦》中一场情人之间解除误会的绝唱。</p><p>《黛玉葬花》是文学名著《红楼梦》中的经典
+        片段。林黛玉最怜惜花，觉得花落以后埋在土里（文中指出的是“花冢”）最干净，说明她对美有独特的见解。她写了《葬花吟》，
+        以花比喻自己，在《红楼梦》中是最美丽的诗歌之一。贾宝玉和林黛玉在葬花的时候有一段对话，成为《红楼梦》中一场情人之
+        间解除误会的绝唱。</p>
+    <!--标题字-->
+    <h1>标题1</h1>
+    <h2>标题2</h2>
+    <!--换行标记<br>独目标记-->
+    hello
+    world
+    hello<br>world
+    <hr>
+    <hr color="red" width="50%">
+    <!--预留格式-->
+    <pre>
+        for(i=0;i<10;i++)
+        {
+        System.out.println(i);
+        }
+    </pre>
+    <del>删除字</del>
+    <ins>插入字</ins>
+    <b>粗体字</b>
+    <i>斜体字</i>
+    10<sup>2</sup>
+    10<sub>2</sub><br>
+    <font color="#ffd700">啊这</font><br>
+    <!--实体符号特点是以&开始，以;结束，&lt;是小于，&gt;是大于-->
+    b&lt;a
+    <br>
+    a&gt;c
+    <br>
+    abc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abc
+    <!--border边框-->
+    <h2 align="center"><b>员工信息表</b></h2>
+    <hr>
+    <table align="center" border="1%" width="30%">
+        <!--th标签,居中加粗-->
+        <!--thead tbody tfoot-->
+        <thead>
+        <tr>
+            <th>员工标号</th>
+            <th>薪资</th>
+            <th>部门名称</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr align="center">
+            <td>d</td>
+            <td>e</td>
+            <!--row合并时删除下面的单元格-->
+            <!--col合并时删除无要求-->
+            <td rowspan="2">f</td>
+        </tr>
+
+        <tr align="center">
+            <td colspan="2">g</td>
+            <!-- <td>h</td>-->
+            <!--  <td>i</td>-->
+        </tr>
+        </tbody>
+
+        <tfoot>
+        <tr align="center">
+            <td>aa</td>
+            <td>bb</td>
+            <td>cc</td>
+        </tr>
+
+        </tfoot>
+    </table>
+
+    </body>
+
+</html>

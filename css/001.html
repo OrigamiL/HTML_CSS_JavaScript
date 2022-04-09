@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+    <title>引入CSS样式的三种方式</title>
+    <style type="text/css">
+        /**
+        css注释
+        id选择器语法格式：
+        #id{
+            样式名 : 样式值;
+        }
+         */
+        #usernameErrorMsg{
+            font-size: 43px;
+            color: red;
+        }
+        /**
+        标签选择器格式：
+        标签名 {
+            样式名 : 样式值;
+        }
+        标签选择器范围比较广
+         */
+        div{
+            background-color: black;
+            border: 2px red solid;
+            width: 100px;
+            height: 100px;
+        }
+        /**
+        类选择器语法格式：
+        .类名{
+            样式名 : 样式值;
+        }
+         */
+        .my_class{
+            border: 1px red solid;
+            background-color: silver;
+            width: 300px;
+            height: 30px;
+        }
+        #my_div{
+            position: absolute;
+            background-color: red;
+            border: 1px silver solid;
+            width: 300px;
+            height: 300px;
+            left: 200px;
+            top: 1000px;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="1.css"/>
+</head>
+<body>
+    <div style="width: 300px; height: 300px; background-color: #66CCFF; display: block;
+                border: 3px solid silver;"></div>
+    <span id="usernameErrorMsg">对不起，用户名不能为空</span>
+    <div></div>
+    <div></div>
+    <br>
+
+    <input type="text" class="my_class"/>
+    <br>   <br>
+    <select class="my_class">
+        <option>专科</option>
+        <option>本科</option>
+    </select>
+    <br>
+    <a href="https://www.baidu.com" target="_blank">百度一下</a>
+    <br>
+    <span id="my_span"><a href="https://www.baidu.com" target="_blank">clink</a>aaaa</span>
+    <br><br>
+    <ul>
+        <li>中国
+            <ul>
+                <li><a href="https://www.baidu.com" target="_blank">百度</a></li>
+                <li>上海</li>
+                <li>重庆</li>
+                <li>天津</li>
+            </ul>
+        <li>日本
+            <ul>
+                <li>东京</li>
+            </ul>
+    </ul>
+    <br>
+    <br>
+    <div id="my_div"></div>
+</body>
+</html>
