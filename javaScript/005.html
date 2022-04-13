@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数</title>
+</head>
+<body>
+<input type="text" id="1" name="username"/>
+<script type="text/javascript">
+    /**
+     * javaScript当中的函数
+     * 语法格式：
+     * function 函数名(参数列表){
+     *     函数体
+     *     return 返回值
+     *     }
+     *  function sun(a,b){
+     *      return a+b;
+     *  }
+     */
+    //函数需要调用才能执行
+    function sum(x,y){
+        alert(x+","+y);
+    }
+    //调用sum函数
+    function sayHello(username){
+        alert("欢迎"+username+"光临");
+    }
+//获取用户输入的用户名
+    function getUserName(){
+        var username=document.getElementById("1").value;
+        sayHello(username);
+    }
+
+    /**
+     * 关于JS的调试
+     * 首选方案是：alert(),在程序的某个位置调用，可以看到调用的参数值
+     */
+</script>
+
+
+<input type="button" value="hello" onclick="getUserName()" />
+</body>
+</html>

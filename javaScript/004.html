@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>标识符变量</title>
+</head>
+<body>
+<script type="text/javascript">
+  /**
+   * 标识符的规则
+   * 以下这段代码是JS的for循环
+   * 关键字：for var
+   * 标识符：i alert
+   * 标识符命名规则：  标识符必须以字母开头，后面可以跟字母、数字、下划线，关键字不能作为标识符
+   */
+  for(var i=0; i<2; i++){
+    alert('i='+i);
+  }
+</script>
+<script type="text/javascript">
+    /**
+     * JS中的变量
+     * 变量的命名规则：
+     * 1.变量名不能以数字开头
+     * 2.变量名不能包含空格
+     * 3.变量名不能包含特殊字符
+     * 4.变量名不能包含关键字
+     * 5.变量名不能包含保留字
+     * 6.变量名不能包含其他类型的数据
+     * JAVA语言在编译阶段确定变量的类型，JS在运行阶段确定变量的类型
+     * int a = 10;（a = true java会报错）
+     * double b = a;
+     * 这行代码表示：a的值赋值给b，a还是int类型，b是double类型
+     * JS的变量怎么声明？
+     * var 变量名;
+     * var i;
+     * 怎么赋值？
+     * 变量名 = 值;
+     * i = 10;
+     * JS中声明变量时不需要指定变量的类型，程序在运行时会自动推断变量的类型，赋什么类型的值，就是什么类型
+     * var i;
+     * i=10;整型
+     * i=true;布尔类型
+     * i=new Date();日期类型
+     */
+    var z ;
+    alert(z);//undefined 变量没有赋值，默认值是undefined
+    var x = "undefined";
+    alert(x);//undefined
+    var y = 100;
+    alert(y+1);//101
+    y = false
+    alert(y);//false
+    //一行可以声明多个变量
+    var a,b,c=100;
+    alert(a);//undefined
+    alert(b);//undefined
+    alert(c);//100
+</script>
+</body>
+</html>

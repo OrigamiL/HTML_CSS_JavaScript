@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>行间事件</title>
+</head>
+<body>
+<!--
+    1.用户点击以下按钮弹出对话框，对话框上显示hello world
+    2.javaScript是一种事件驱动型的编程语言，通常都是在发生某个事件的时候去执行某段代码。其中事件包括很多：鼠标单击click，鼠标经过mouseover
+并且在javascript当中任何一个事件都有对应的事件句柄，例如click对应的事件句柄为onclick，mouseover对应的事件句柄为onmouseover
+    3.所有的事件句柄都是以标签的属性形式存在，例如input button就有一个onclick属性，只要有用户点击了以下这个按钮对象，此时按钮对象上发生了
+鼠标单击事件，那么注册在onclick事件句柄当中的JS代码会被执行。执行onclick后面代码的是浏览器。
+    4.onclick不是浏览器打开的时候执行的，
+浏览器打开的时候，只是将这个代码注册给onclick事件句柄，等待该按钮的click事件发生，只要发生，后面的代码会被事件监听器调用执行
+    5.怎么使用JS弹窗？在JS当中有一个内置的BOM对象，可以直接拿来使用，全部小写：window，其中window对象有一个方法/函数叫做alert，这个函数专门用来
+弹出对话框,
+    6.JS中的字符串用单引号括起来，也可以使用双引号;JS中的一条语句可以以;结尾，也可以不以;结尾-->
+
+    <input type="button" value="hello" onclick="alert('hello world');alert('a_zhe')"/>
+</body>
+</html>

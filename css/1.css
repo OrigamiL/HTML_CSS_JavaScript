@@ -10,4 +10,5 @@ a{
 }
 ul{
     list-style-type: circle;
+    display: block;
 }
