@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数初步</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var a ;
+    var e = undefined;
+    var f = "undefined";
+    console.log(typeof a);
+    console.log(e);
+    console.log(typeof f);
+    /**
+     * JS中number代替了java中的byte，short，int，long，float，double
+     * NaN是一个number类型，表示不是一个数字
+     * 什么情况下结果是一个NaN？
+     * 当一个数学表达式的运算结果不是一个数字时，就会返回一个NaN；
+     * Infinity是一个number类型，表示一个无限大的数字；除数是0，就会返回Infinity；
+     * isNaN()方法用来判断一个值是否为NaN；他会首先尝试转换值为number类型，如果转换失败，就返回true；
+     */
+    var x = 1/"a";
+    var y = 1/0;
+    var z = 1+"a";
+    console.log(y);//Infinity
+    console.log(x);//NaN
+    console.log(z);//1a
+    /**
+     * Boolean类型属于原始类型，只有两个值，true和false
+     * Boolean有一个函数叫做Boolean()，它可以把任何值转换为Boolean类型；
+     */
+    console.log(Boolean(NaN));//false
+    console.log(Boolean(0));//false
+    console.log(Boolean(1));//true
+    console.log(Boolean(""));//false
+    console.log(Boolean(" "));//true
+    /**
+     * 只要有东西就是true，null，undefined，0，""都是false
+     * Boolean()函数在JS中会被隐式调用， 不用手动调用
+     */
+    var username = "张三";
+    if (username){
+        console.log("welcome"+username);
+    }
+    else {
+        console.log("用户名不能为空");
+    }
+    var i = 10;
+    //这里的(i)也会隐式调用Boolean()函数
+    while (i){
+        console.log(i);
+        i--;
+    }
+    console.log(10/3);//3.3333333333333335
+
+
+    sayHello();//会执行
+    //函数的声明优先级高于调用
+    function sayHello() {
+        alert("Hello world" );
+    }
+    sayHello();//这行代码暴露在script标签中，在页面打开的时候就会执行
+    /**
+     * 在函数内部声明的变量，叫做局部变量，在函数外部声明的变量，叫做全局变量
+     *全局变量在浏览器打开的时候分配空间，直到浏览器关闭的时候，全局变量的空间才会被释放
+     */
+    //全局变量
+    var username = "张三";
+    //局部变量
+    function hello() {
+        var username = "李四";
+        alert(username+ "你好");
+    }
+    function hello(a) {
+        var username = "王五";
+        alert(username+ "你好");
+    }
+    hello()//李四
+    /**
+     * JS中函数是不能重载的，也不存在重载机制
+     * JS中的函数只要出现同名函数，之前的函数就会被覆盖
+     * 注意在JS中编写函数名的时候，谨慎一些
+     */
+    alert("username = "+username);
+    /**
+     * 声明了变量，但是没有手动赋值，那么这个变量就是undefined
+     * 没有声明变量，访问的时候会报错
+     */
+    function doSome() {
+        return email = "zhangsan@123.com";//如果变量声明的时候没有使用关键字，那么就是全局变量
+    }
+    doSome();
+    /**
+     * JS中数据类型有
+     * 基本数据类型：number string boolean null undefined
+     * 引用数据类型：object
+     * ：Symbol BigInt
+     * ES6之前是6种数据类型，ES6之后是8种数据类型
+     * typeof运算符，可以检测数据类型
+     * 语法格式：typeof 变量名
+     * typeof运算结果：
+     * number string boolean undefined object function
+     */
+    //sum函数的作用是计算两个数字的和，要求x和y都必须是数字类型，如果不是数字类型提示错误信息
+    function sum(x,y){
+        if(typeof x == "number" && typeof y == "number"){
+            alert(x+y);
+        }
+        else
+            alert("x和y必须是数字类型");
+    }
+    function sum1(x,y){
+        if(isNaN(x) || isNaN(y)){
+            console.log("x和y必须都是数字类型");
+        }
+        else{
+            //Number()可以把不是数字的数据类型转化为数字,但是如果不能转为数字，则转为NaN，
+            console.log(Number(x)+Number(y));
+        }
+
+    }
+    //将字符串转化为数字，并取整数位
+    var xx = "3.14";
+    var yy = 3.11;
+    console.log(parseInt(xx));
+    //取整
+    console.log(Math.trunc(yy));
+    //向上取整
+    console.log(Math.ceil(11.1));//12
+    var pi = 3.14;
+    console.log(typeof pi);//number
+    var sex = false;
+    console.log(typeof sex);
+    var obj = null;
+    console.log(typeof obj);
+    var object = new Object();
+    console.log(typeof object);
+</script>
+<input type="button" value="hello" onclick="sayHello() "/>
+<a href="https://www.baidu.com" onmouseover="sayHello()" target="_blank">你好</a>
+<input type="button" value="hello" onclick="alert(email)"/>
+<input type="button" value="求和" onclick="sum(1,2)">
+<input type="button" value="1+1" onclick="sum1(1,1)"/>
+<input type="button" value="1+?" onclick="sum1(1,'11')"/>
+</body>
+</html>

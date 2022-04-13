@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String和Object类型</title>
+</head>
+<body>
+<script type="text/javascript">
+    /**
+     * String类型属于原始类型
+     * var s = "字符串";
+     * var s = '字符串';
+     * var s = new String("字符串");
+     * 在JS中提供了创建字符串的两种方式
+     * 如果使用这种方式就是属于原始类型 var s = "字符串";
+     * 如果使用new String()创建的就是Object类型 var s = new String("字符串");
+     * String中的常用属性和方法
+     * length属性：返回字符串的长度
+     * charAt(index)方法：返回指定索引的字符
+     * IndexOf(str)方法：返回指定字符串在字符串中首次出现的位置
+     * lastIndexOf(str)方法：返回指定字符串在字符串中最后一次出现的位置
+     * replace(str1,str2)方法：替换字符串中的指定字符串为指定字符串
+     * split(str)方法：把字符串分割成数组
+     * substr(start,length)方法：截取字符串
+     * substring(start,end)方法：截取字符串
+     * toLowerCase()方法：把字符串转换成小写
+     * toUpperCase()方法：把字符串转换成大写
+     */
+    console.log("https://www.baidu.com".indexOf("ww"));//返回指定字符串在字符串中首次出现的位置
+    console.log("https://www.baidu.com".lastIndexOf("ww"));//返回指定字符串在字符串中最后一次出现的位置
+    console.log("1980-10-21".replace("-", "/"));//替换字符串中的指定字符串为指定字符串,只能替换第一个，如果要替换所有的，可以使用正则表达式
+    var arr = "1980-10-21".split("-");//把字符串分割成数组
+    for (var i = 0; i < arr.length; i++) {
+        console.log(arr[i]);//还是使用中括号加下标的方式获取数组中的元素
+    }
+    console.log("1980-1-1".substr(2, 4));//截取字符串substr(startIndex,length)
+    console.log("1980-1-1".substring(2, 4));//截取字符串substring(startIndex,endIndex)不包括endIndex
+
+    /**
+     * Object类型：
+     * 1、在JS当中内置了一个类型，叫做Object，可以将Object类型看做是所有对象的超类/基类
+     * 2.在JS中默认定义的类型，没有特殊说明的话，默认继承Object
+     * 3.Object类型的属性和方法
+     * 属性：
+     * prototype属性：这个属性可以给对象动态拓展属性和方法
+     */
+    var o = new Object();
+    console.log(typeof o);//object
+    Object.prototype.doSome = function () {//给Object类型的对象拓展一个doSome方法
+        console.log("doSome");
+    }
+    Object.prototype.username = "张三";//给Object类型的对象拓展一个username属性
+    o.doSome();
+    console.log(o.username);//张三
+    Number.prototype.add = function (x) {
+        if (isNaN(x)) {
+            console.log("必须为数字")
+        } else {
+            console.log(Number(this) + Number(x));//this表示当前对象
+        }
+    }
+    var a = 1111;
+    a.add(2);
+
+    /**
+     * 在JS中怎么定义类？
+     * 第一种方式：
+     * function 类名 (形式参数列表) {
+     *     this.属性名 = 参数;
+     *     this.方法名 = function(){
+     *
+     *     }
+     * }
+     * 类名 = function (形式参数列表) {
+     *     this.属性名 = 参数;
+     *     this.方法名 = function(){
+     *
+     *     }
+     * }
+     * 既是一个函数又是一个类的定义，
+     */
+
+    DoSome = function (x) {
+        this.aaa = x;
+        this.doSome = function () {
+            console.log("dio");
+        }
+    }
+    var do_some = new DoSome(100);
+    do_some.doSome();
+    console.log(do_some.aaa);
+    //定义一个员工类
+    Emp = function (name,sal,no){
+        this.name = name;
+        this.sal = sal;
+        this.no = no;
+        this.work = function (){
+            console.log(this.name + "is working!");
+        }
+    }
+    var emp1 = new Emp("jack",1000,"001");
+    emp1.work();
+    Emp.prototype.getSal = function(){
+        return this.sal;
+    }
+    console.log(emp1.getSal());
+    //访问对象的属性两种方式
+    console.log("sal = "+emp1.sal);
+    console.log("sal = "+emp1["sal"]);
+
+
+</script>
+</body>
+</html>
