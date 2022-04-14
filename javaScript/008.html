@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS中的常用事件</title>
+    <style>
+        input {
+            width: 200px;
+            height: 30px;
+            border: 1px solid black;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .button{
+            align-content: center;
+        }
+
+        td{
+
+            text-align: center;
+        }
+        select{
+            width: 200px;
+            height: 30px;
+            border: 1px solid black;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body onload="console.log('页面加载完成了')">
+<script type="text/javascript">
+    /**
+     * JS当中的常用事件
+     * blur 失去焦点 ;  focus 获取焦点
+     * click 点击 ;  dblclick 双击 ;
+     * keydown 键盘按下 ;  keyup 键盘弹起 ;  keypress 键盘按下并弹起
+     * mousedown 鼠标按下 ; mouseover 鼠标经过 ; mousemove 鼠标移动 ;mouseout 鼠标移出 ;  mouseup 鼠标抬起
+     * submit 表单提交; reset 表单重置
+     * select 文本被选定; change 下拉列表选中项该表或者文本框的值发生改变
+     * load 页面加载完成
+     * 事件句柄就是在事件名称前添加on
+     */
+</script>
+测试失去焦点事件：<input type="text" onblur="console.log('失去焦点了')"/>
+<br>
+测试失去焦点事件：<input type="text" onfocus="console.log('获取焦点了')"/>
+<br>
+测试click事件：<input type="button" value="单击" onclick="console.log('用户点击了')"/>
+<br>
+测试dblclick事件：<input type="button" value="双击" ondblclick="console.log('用户双击了')"/>
+<br>
+测试keydown事件：<input type="text" onkeydown="console.log('用户按下了键盘')"/>
+<br>
+测试keyup事件：<input type="text" onkeyup="console.log('用户弹起了键盘')"/>
+<br>
+测试load事件：<img src="../html/1.jpg" onload="console.log('图片加载完成了')"/>
+<br>
+<div onmouseover="console.log('鼠标经过')"
+     onmousedown="console.log('鼠标按下')"
+     onmousemove="console.log('鼠标移动')"></div>
+<br>
+<form onsubmit="console.log('用户提交了')" onreset="console.log('用户重置了')">
+    <table>
+        <tr>
+            <td>
+                用户名<input type="text" name="username" onselect="console.log('用户名被选中了')"/>
+            <td>
+                密码<input type="password" name="password" onkeyup="console.log('用户输入了')"/>
+        </tr>
+        <tr>
+            <td>
+                <input class="button" type="submit" value="提交" onclick="console.log('用户点击了提交按钮')"/>
+            <td>
+                <input class="button" type="reset" value="重置" onclick="console.log('用户点击了重置按钮')"/>
+
+        </tr>
+        <tr>
+            <td>
+                <select onchange="console.log('下拉列表选项改变')">
+                    <option>--请选择您的学历--</option>
+                    <option>高中</option>
+                    <option>大专</option>
+                    <option>本科</option>
+                </select>
+
+        </tr>
+    </table>
+</form>
+<textarea rows="10" cols="30" onselect="console.log('文本被选中了')"></textarea>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>捕捉回车键,void运算符,JS特殊语句</title>
+</head>
+<body>
+<script>
+window.onload = function (){
+    document.getElementById("login").onkeydown = function (event){//所有的回调函数都有一个参数event，表示当前发生的事件
+        //监听器调用回调函数的时候，会传入一个event对象，这个对象包含了当前发生的事件的所有信息
+        if(event.key==='Enter'){
+            console.log('回车键被按下');
+        }
+        if (event.key === 'Escape') {
+            console.log('ESC键被按下');
+        }
+    }
+}
+/**
+ *     for in语句
+ *     with语句
+ */
+
+
+var arr = [true, "中国", 4, 5, 5.66, 2, 34];
+for (var i in arr) {
+    console.log(arr[i]);
+}
+
+Employee = function (name, age, salary) {
+    this.name = name;
+    this.age = age;
+    this.salary = salary;
+}
+var emp = new Employee("张三", 20, 2000);
+
+//for in循环遍历对象的属性
+for (var i in emp) {
+    console.log(emp[i]);
+}
+//with用法
+//with语句可以在一个作用域中捕捉一个对象的属性，并且可以对这个属性进行赋值
+with (emp) {
+    name = "李四";
+    console.log("name:" + name + " age:" + age + " salary:" + salary);//name:李四 age:20 salary:2000
+}
+
+</script>
+    用户名：<input type="text" id="login" name="login" />
+<!--void运算符：
+    语法格式：
+    void(表达式)
+    执行表达式，但是不返回任何值
+    -->
+<!--添加javascript:代表后面是JS代码，一般可以省略-->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!--添加href属性，这样可以保留超链接的样式，onclick后面可以编写JS代码，这样点击的时候JS代码就执行了，执行完JS代码要保证页面不跳转
+    href后面添加javascript:void(0) 表示把href的连接地址废弃掉-->
+
+<a href="javascript:void(0)" onclick="alert('执行JS代码了')">要求：保留住超链接的样式，并且点击我执行一段JS代码，执行完JS代码之后保证页面不跳转</a>
+<br>
+
+
+</body>
+</html>

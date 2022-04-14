@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件注册</title>
+    <link rel="stylesheet" type="text/css" href="../css/1.css"><!--rel是relations的缩写-->
+</head>
+<body onload="pageLoad()"><!--页面加载完成后执行这里的代码，此时id = button的元素已经加载完成了
+见010html升级-->
+<script>
+    function sayHello(){
+        console.log("hello");
+    }
+</script>
+<input type="button" value="hello" onclick="sayHello()"/>
+<!--这种注册事件的方式就是第一种方式，在标签中使用‘事件句柄’，在事件句柄后面编写JS代码，
+    当事件句柄对应的事件发生之后，注册在事件句柄当中的这个代码被监听器调用
+    callback function 回调函数：监听器负责调用，程序员不负责调用-->
+
+
+<script type="text/javascript" >
+    /**
+     * 根据id获取元素/节点对象
+     * JS中有一个内置的隐含的对象叫做：document，它代表了当前html页面的文档对象
+     * windows代表了当前浏览器窗口对象
+     */
+
+    function pageLoad(){
+        var button = document.getElementById("my_button");
+        // button.type = "checkbox";//修改按钮的类型
+        //button.onclick = c;//不要这样写button.onclick = c();
+        //回调函数可以是一个匿名函数
+        button.onclick = function (){
+            console.log("我是一个匿名函数")
+        }
+    }
+
+</script>
+<input type="button" id="my_button" value="按钮" onClick=""/>
+
+</body>
+</html>
