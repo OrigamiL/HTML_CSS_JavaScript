@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS的内置对象Date</title>
+</head>
+<body>
+<script>
+
+    /**
+     * JS的内置对象Date
+     *
+     */
+    var time = new Date();//获取系统当前时间
+    console.log(time);
+    //进行格式转换，将年月日的信息都拿出来，然后自己拼接格式
+    var year = time.getFullYear();//获取年份
+    var moonth = time.getMonth()+1;//获取月份 0-11表示1-12月
+    var day = time.getDate();//获取日期
+    console.log(year+'-'+moonth+'-'+day);
+    console.log(time.toLocaleString());//toLocaleString()方法，将时间转换成本地格式,到秒
+    console.log(time.toLocaleDateString());//toLocaleDateString()方法，将时间转换成本地日期格式
+    //获取自1970年1月1日起的毫秒数
+    console.log(time.getTime());
+</script>
+</body>
+</html>

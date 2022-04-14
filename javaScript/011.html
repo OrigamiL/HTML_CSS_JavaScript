@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>捕捉回车键,void运算符,JS特殊语句</title>
+    <title>捕捉回车键,void运算符,JS特殊语句,数组array以及常用方法</title>
 </head>
 <body>
 <script>
@@ -46,6 +46,45 @@ with (emp) {
     console.log("name:" + name + " age:" + age + " salary:" + salary);//name:李四 age:20 salary:2000
 }
 
+//创建数组的第一种方式  JS中的数组长度是可变的
+var a = [];//创建一个长度为0的数组
+//
+a.push("China");//push方法，向数组中添加一个元素，并且将元素添加到数组的末尾
+a.push(123);
+a.push(true);
+console.log("$$$$$$$"+a.pop());//pop方法，从数组中删除最后一个元素，并且返回这个元素
+console.log(a[3])//undefined
+//push跟pop模拟了栈数据结构
+//翻转数组
+var b = [];
+b.push("China");
+b.push(123);
+b.push(true);
+b.reverse();//reverse方法，翻转数组中的元素
+for (var i = 0; i < b.length; i++) {
+    console.log(b[i]);
+}
+//连接数组，将数组中的每一个元素连接,返回一个字符串
+var str = b.join("-");
+console.log(str);
+
+var a2 = [1,true,'zzz'];//数组中的元素可以是任意类型
+a[20] = 1;
+a2[10] = 333;
+console.log("数组的长度："+a.length)//21
+for (var aKey in a2) {
+    console.log(a2[aKey]);
+}
+for (var i = 0; i < a2.length; i++) {
+    console.log("a["+i+"] = "+a2[i]);
+}
+//创建数组的第二种方式
+var a1 = new Array(10);//创建一个长度为10的数组
+console.log(a1.length);//10
+console.log(a1[0]);//undefined
+for (var aKey1 in a1) {
+    console.log(a1[aKey1]);
+}
 </script>
     用户名：<input type="text" id="login" name="login" />
 <!--void运算符：
