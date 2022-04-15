@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM编程案例</title>
+    <link rel="stylesheet" type="text/css" href="../css/1.css"/>
+</head>
+<body>
+<script>
+    window.onload = function () {
+        document.getElementById("open_baidu").onclick = function () {
+            window.open("014-2.html");// window.open(url,target);
+        }
+    }
+    function del(){
+        var del = confirm("确定要删除吗？");
+        if(del){
+            alert("删除成功");
+        }else{
+            alert("删除失败");
+        }
+    }
+</script>
+<script type="text/javascript" src="1.js"></script>
+<input type="button" id="open_baidu" value="开启百度" />
+<input type="button" value="删除" onclick="del()" />
+<a href="014-2.html">14-2</a>
+</body>
+</html>

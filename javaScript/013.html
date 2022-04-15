@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM跟DOM的区别与联系</title>
+    <style type="text/css">
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            margin-bottom: 10px;
+            border: red solid 1px;
+            font-size: 20px;
+            color: blue;
+        }
+        #span1{
+            width: 100px;
+            background-color: #f00;
+            margin-bottom: 10px;
+
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+  /**
+   * 通过BOM的对象和方法可以完成浏览器窗口的操作
+   * 通过DOM的对象和方法可以完成网页中元素的增删改
+   * BOM是包含DOM的
+   */
+/*  window.onload = function (){
+      //window对象是BOM的顶级老大
+      //document对象是DOM的顶级老大
+    var divObj = window.document.getElementById('div1');//window可以省略
+    console.log(divObj);
+  }*/
+  window.onload = function () {
+      document.getElementById('btn1').onclick = function () {
+          var divElt = document.getElementById('div1');
+          //div中显示你好
+          divElt.innerHTML = "你好<br>hello";//innerHTML会把后面当做一段html代码执行
+          // divElt.innerText = "你好<br>hello";//innerText会把后面当做普通字符串
+      }
+      document.getElementById('btn2').onclick = function () {
+          var spanElt = document.getElementById('span1');
+          //div中显示你好
+       //   spanElt.innerHTML = "你好<br>hello";//innerHTML会把后面当做一段html代码执行
+          spanElt.innerText = "你好<br>hello";//innerText会把后面当做普通字符串
+      }
+  }
+</script>
+<input type="button" id="btn1" value="设置div中的内容"/>
+<input type="button" id="btn2" value="设置span中的内容"/>
+
+<!--div独占一行-->
+<div id="div1"></div>
+<!--span的大小会随着span的内容多少而进行变化-->
+<span id="span1"></span>
+<br>
+<input type="checkbox" id="checked_all" value="all"/>全选
+<input type="checkbox" name="favorite" value="sing"/>唱歌
+<input type="checkbox" name="favorite" value="game"/>游戏
+<input type="checkbox" name="favorite" value="basketball"/>篮球
+<script>
+    var all = document.getElementById('checked_all');
+    all.onclick = function () {
+        var checkBoxes = document.getElementsByName('favorite');
+        for(var i=0;i<checkBoxes.length;i++){
+            checkBoxes[i].checked = all.checked;//all.checked 获取全选框的状态 赋值给checkBoxes[i]的checked
+        }
+        console.log(all.checked);
+    }
+//如果有单选，全选框的状态变为false
+
+    //很难理解
+/*    var checkBoxes = document.getElementsByName('favorite');
+    for (var i = 0; i < checkBoxes.length; i++) {
+        checkBoxes[i].onclick = function(){
+            if(all.checked === true){
+                all.checked = false;
+            }
+            var flag = true;
+            for (var i = 0; i < checkBoxes.length; i++) {
+                if(checkBoxes[i].checked === false){
+                    flag = false;
+                    break;
+                }
+            }if (flag === true) {
+                all.checked = true;
+            }
+        }
+
+    }*/
+    var checkBoxes = document.getElementsByName('favorite');
+
+    for (var i = 0; i < checkBoxes.length; i++) {
+        checkBoxes[i].onclick = function () {
+            var count = checkBoxes.length;
+            var checkedCount = 0;
+            for (var j = 0; j < checkBoxes.length; j++) {
+                if (checkBoxes[j].checked === true) {
+                    checkedCount++;
+                }
+            }
+            all.checked = (checkedCount === count);
+        }
+    }
+</script>
+
+<select id="select" onchange="alert(this.value)">//onchange事件 this代表当前的下拉列表对象
+    <option value="">请选择</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+
+<br>
+<input type="button" value="显示当前时间" id="time_btn"/>
+<input type="button" value="时间停止" id="time_stop_btn"/>
+<div id="time_div">
+</div>
+
+<script>
+/*    var select = document.getElementById('select');
+    select.onchange = function (){
+        alert(select.value);
+    }*/
+//周期性调用
+
+document.getElementById('time_btn').onclick = function () {
+    time_clock = window.setInterval(display, 1000);//不加var 全局变量
+}
+document.getElementById('time_stop_btn').onclick = function () {
+    window.clearInterval(time_clock);
+}
+
+function display() {
+    document.getElementById('time_div').innerHTML = new Date().toLocaleString();
+}
+
+</script>
+
+</body>
+</html>
