@@ -126,7 +126,7 @@
         alert(select.value);
     }*/
 //周期性调用
-
+var time_clock;
 document.getElementById('time_btn').onclick = function () {
     time_clock = window.setInterval(display, 1000);//不加var 全局变量
 }
