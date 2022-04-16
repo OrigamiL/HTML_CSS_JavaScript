@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>顶级窗口</title>
+    <title>顶级窗口 历史记录</title>
 </head>
 <body>
 <h1>顶级窗口</h1>
@@ -21,5 +21,21 @@
     }
 </script>
 <input type="button" value="点击" onclick="setTop()"/>
+
+<h1>历史记录</h1>
+<a href="014-2.html">014-2页面</a>
+<input type="button" value="前进" onclick="window.history.go(1)"/>//前进
+<!--跳转页面可以通过多种方式（都是发送请求）：
+1.在地址栏输入url
+2.点击超链接
+3.提交表单
+4.window.open(url,target)
+5.JS代码：window.location.href = url;
+         window.location = url;
+         document.location.href = url;
+         document.location = url;
+通过浏览器向服务器发送请求，通常是以上五种方式。
+-->
+<input type="button" value="百度" onclick="window.location.href='https://www.baidu.com'">
 </body>
 </html>

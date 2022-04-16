@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设计JSON格式描述全班学生</title>
+</head>
+<body>
+<script type="text/javascript">
+    var students = {
+        "total" : 3,
+        "data" : [
+            {
+                "id": 101,
+                "name": "张三"
+            },
+            {
+                "id": 102,
+                "name": "李四"
+            },
+            {
+                "id": 103,
+                "name": "王五"
+            }]
+    }
+    for (var i = 0; i < students.total; i++) {
+        console.log(students.data[i].id + ":" + students.data[i].name);
+    }
+</script>
+</body>
+</html>
