@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <style>
+        tr{
+            height: 30px;
+        }
+        span{
+            font-size: 12px ;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    /**
+     * 1.用户名不能为空
+     * 2.用户名必须在6-14位之间
+     * 3.用户名只能由数字和字母组成，不能含有其他符号
+     * 4.密码和确认密码一致，邮箱地址合法
+     * 5.统一失去焦点验证
+     * 6.错误提示信息统一在span标签中提示，并且要求字体12号，红色
+     * 7.文本框再次获得焦点后，清空错误提示信息，如果文本框中数据不合法要求清空文本框的value
+     * 8.最终表单中所有项均合法方可提交
+     */
+    window.onload = function () {
+        var usernameRegExp = /^[A-Za-z0-9]+$/
+        document.getElementById("username").onblur = function () {
+            var username = document.getElementById("username").value;
+            var tip = document.getElementById("username_span")
+            if (username.length === 0) {
+                tip.innerText = "用户名不能为空！"
+            } else if (usernameRegExp.test(username) === false) {
+                tip.innerText = "用户名只能由数字和字母组成，不能含有其他符号!"
+            } else if (username.length < 6 || username.length > 14) {
+                tip.innerText = "用户名必须在6-14位之间!"
+            } else
+                tip.innerText = "√"
+            document.getElementById("username").onfocus = function () {
+                /*  var username = document.getElementById("username").value;
+                  var tip = document.getElementById("username_span")*/
+                if (usernameRegExp.test(username) === false || username.length < 6 || username.length > 14) {
+                    tip.innerText = ""
+                    document.getElementById("username").value = ""
+                }
+            }
+        }
+
+        document.getElementById("confirm").onblur = function () {
+            var password = document.getElementById("password").value;
+            var confirm = document.getElementById("confirm").value;
+            var tip = document.getElementById("password_span")
+            if (password !== confirm) {
+                tip.innerText = "密码不一致！"
+            } else
+                tip.innerText = "√"
+            document.getElementById("confirm").onfocus = function () {
+                if (password !== confirm) {
+                    tip.innerText = ""
+                    document.getElementById("confirm").value = ""
+                }
+            }
+        }
+        document.getElementById("email").onblur = function () {
+            var email = document.getElementById("email").value;
+            var emailRegExp = /^\w+([-+.]\w+)*@\w+([-+.]\w+)*.\w+([-+.]\w+)*$/
+            var tip = document.getElementById("email_span")
+            if (emailRegExp.test(email) === false) {
+                tip.innerText = "邮箱格式错误！"
+            } else
+                tip.innerText = "√"
+            document.getElementById("email").onfocus = function (){
+                if (emailRegExp.test(email) === false) {
+                    tip.innerText = ""
+                    document.getElementById("email").value = ""
+                }
+            }
+        }
+    }
+</script>
+<form>
+    <table>
+        <tr>
+            <td>用户名：</td>
+            <td><input id="username" type="text" name="username"  /></td>
+            <td><span id="username_span"></span></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input id="password" type="password" name="pwd"/></td>
+        </tr>
+        <tr>
+            <td>确认密码：</td>
+            <td><input id="confirm" type="password"/></td>
+            <td><span id="password_span"></span></td>
+        </tr>
+        <tr>
+            <td>邮箱：</td>
+            <td><input id="email" type="text" name="email"/></td>
+            <td><span id="email_span"></span></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="提交"/></td>
+        </tr>
+
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+</head>
+<body>
+<script>
+    /**
+     * 正则表达式
+     * 格式匹配
+     * 1.能够看懂正则表达式
+     * 2.简单的正则要会写
+     * 3.要能够独立的从网络当中搜索到你想要的正则表达式
+     * 4.要会创建JS的正则表达式对象
+     * 5.要会调用JS正则表达式对象的方法
+     *
+     * . 匹配除换行符之外的任意字符
+     * \w 匹配字母或数字或下划线或汉字
+     * \s 匹配任意的空白符
+     * \d 匹配数字
+     * \b 匹配单词的开始或结束
+     * ^ 匹配字符串的开始
+     * $ 匹配字符串的结束
+     *
+     * * 重复零次或者更多次
+     * + 重复一次或者更多次
+     * ? 重复零次或一次
+     * {n} 重复n次
+     * {n,} 重复n次或更多次
+     * {n,m} 重复n到m次
+     *
+     * \W 匹配任意不是字母或数字或下划线或汉字的字符
+     * \S 匹配任意不是空白的字符
+     * \D 匹配不是数字的字符
+     * \B 匹配不是单词的开始或者结束的位置
+     * [^x] 匹配除了x以外的任意字符
+     * [^sd] 匹配除了sd以外的任意字符
+     *
+     * | 表示或者
+     * 如何在JS中创建正则表达式
+     * 1. var regExp = /正则表达式/标记            用第一种
+     * 2. var regExp = new RegExp("正则表达式","标记");
+     * 标记是可选项。g:全局 global
+     *             i:忽略大小写 ignoreCase
+     *             m
+     *             gi: 全局扫描，并且忽略大小写
+     * 正则表达式方法：test
+     * var emailRegExp = /^\w+([-+.]\w+)*@/^\w+([-+.]\w+)*\./^\w+([-+.]\w+)*$/gi
+     * var ok = emailRegExp.test("用户输入的字符串");
+     * 返回true表示匹配成功了
+     * "1980-10-21">replace("-","/")
+     */
+    console.log("1980-10-21".replace(/-/g,"/"))
+    var emailRegExp = /^\w+([-+.]\w+)*@\w+([-+.]\w+)*.\w+([-+.]\w+)*$/
+    function checkEmail () {
+        console.log(emailRegExp.test(document.getElementById("email").value));
+    }
+
+</script>
+邮箱地址<input type="text" id="email"/>
+<input id="btn" type="button" value="验证邮箱地址" onclick="checkEmail()">
+</body>
+</html>
